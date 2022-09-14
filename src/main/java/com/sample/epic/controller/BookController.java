@@ -5,6 +5,7 @@ import com.sample.epic.dto.request.BookDTO;
 import com.sample.epic.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,12 +28,12 @@ public class BookController {
     }
 
     @PostMapping
-    public ResponseEntity<Book> saveBook(BookDTO bookDTO) {
+    public ResponseEntity<Book> saveBook(@RequestBody @Validated BookDTO bookDTO) {
         return ResponseEntity.ok(bookService.saveBook(bookDTO));
     }
 
     @PutMapping
-    public ResponseEntity<Book> updateBook(BookDTO bookDTO) {
+    public ResponseEntity<Book> updateBook(@RequestBody @Validated BookDTO bookDTO) {
         return ResponseEntity.ok(bookService.updateBook(bookDTO));
     }
 

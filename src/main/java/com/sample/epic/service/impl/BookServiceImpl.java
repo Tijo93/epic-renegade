@@ -6,9 +6,8 @@ import com.sample.epic.repository.BookRepository;
 import com.sample.epic.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Service
@@ -18,7 +17,7 @@ public class BookServiceImpl implements BookService {
     private BookRepository bookRepository;
 
     @Override
-    public Book saveBook(@Validated @RequestBody BookDTO bookDTO) {
+    public Book saveBook(@Valid BookDTO bookDTO) {
         return bookRepository.save(bookDTO);
     }
 

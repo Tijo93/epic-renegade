@@ -13,18 +13,13 @@ import java.util.stream.Collectors;
 @Repository
 public class BookRepository {
 
-    private List<Book> list = new ArrayList<>();
-
-    public void createBooks() {
-        list = new ArrayList<>(List.of(
-                new Book(1L, "Effective Java", "Steve"),
-                new Book(2L, "Book 2", "Jinu"),
-                new Book(3L, "Book 3", "John")
-        ));
-    }
+    private final List<Book> list = new ArrayList<>() {{
+        add(new Book(1L, "Effective Java", "Steve"));
+        add(new Book(2L, "Book 2", "Jinu"));
+        add(new Book(3L, "Book 3", "John"));
+    }};
 
     public List<Book> getAllBooks() {
-        createBooks();
         return list;
     }
 

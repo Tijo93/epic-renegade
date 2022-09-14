@@ -3,7 +3,7 @@ package com.sample.epic.dto.request;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -11,9 +11,9 @@ public class BookDTO {
 
     private Long id;
 
-    @NotBlank
+    @NotNull
     private String title;
 
-    @NotBlank
+    @NotNull
     private String author;
 }
